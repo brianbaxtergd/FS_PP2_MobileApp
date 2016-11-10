@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/FreeTimer.unity
+- path: Assets/Scenes/ProjectTasks.unity
   isLoaded: 1
   isActive: 1
