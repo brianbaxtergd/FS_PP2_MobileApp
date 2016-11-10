@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/ProjectTasks.unity
-  isLoaded: 1
-  isActive: 1
