@@ -522,8 +522,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1802029192}
-        m_MethodName: SendMessage
-        m_Mode: 5
+        m_MethodName: OnButtonClick_startStop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -929,7 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fca3af818e050a4db3695620ac9533b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mHomeButton: {fileID: 788696487}
 --- !u!1 &1916224944
 GameObject:
   m_ObjectHideFlags: 0

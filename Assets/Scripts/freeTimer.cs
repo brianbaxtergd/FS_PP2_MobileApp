@@ -72,7 +72,7 @@ public class freeTimer : MonoBehaviour
         UpdateTimerText();
         mTimerStateText.text = mTimerStates[(int)mState];
         // Pause timer.
-        OnButtonClick();
+        OnButtonClick_startStop();
     }
 	// Update is called once per frame
 	void Update ()
@@ -88,7 +88,7 @@ public class freeTimer : MonoBehaviour
                 AtTimerEnd();
         }
 	}
-    void OnButtonClick()
+    public void OnButtonClick_startStop()
     {
         mPaused = !mPaused;
         // Update button text.

@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class HomeButtonController : MonoBehaviour {
 
-    [SerializeField]
-    Button mHomeButton;
-
     public void OnButtonClick()
     {
         SceneManager.LoadScene("Home");

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692528, g: 0.49678677, b: 0.57508475, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -234,6 +234,7 @@ GameObject:
   - 222: {fileID: 189120491}
   - 114: {fileID: 189120490}
   - 114: {fileID: 189120489}
+  - 114: {fileID: 189120492}
   m_Layer: 5
   m_Name: button_quicktimer
   m_TagString: Untagged
@@ -298,7 +299,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 189120490}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189120492}
+        m_MethodName: OnButtonClick_startQuickTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: FreeTimer
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &189120490
@@ -334,6 +346,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189120487}
+--- !u!114 &189120492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189120487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7474beb72cf5e44478734dfc4f8f3462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &440727606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1302,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1261654896}
+--- !u!1 &1264790804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000011885894738, guid: f295e621ddb56c4468381698093d2309,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1264790808}
+  - 114: {fileID: 1264790807}
+  - 114: {fileID: 1264790806}
+  - 114: {fileID: 1264790805}
+  m_Layer: 0
+  m_Name: ApplicationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &1264790805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000013129172318, guid: f295e621ddb56c4468381698093d2309,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1264790804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7e7d4c0f13c324abb1050598bc9d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1264790806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000014266007350, guid: f295e621ddb56c4468381698093d2309,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1264790804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37542d73c890c5b4b8848722eebb0e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1264790807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000011411999580, guid: f295e621ddb56c4468381698093d2309,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1264790804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a5406418e9e6e46b5302f6a7ad1f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1264790808
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4000011337969128, guid: f295e621ddb56c4468381698093d2309,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1264790804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 183.5848, y: 652.855, z: -345.27783}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &1269314914
 GameObject:
   m_ObjectHideFlags: 0
