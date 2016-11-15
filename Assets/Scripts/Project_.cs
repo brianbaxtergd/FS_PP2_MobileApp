@@ -9,13 +9,13 @@ public class Project : MonoBehaviour
 
     ArrayList UndoneTasks; //ArrayList of Uncomplite Tasks.
     ArrayList ArchiveTasks; //ArrayList of Complite Tasks.
- 
+   
     Project()
     {
         ProjectName = "New Project";
         ProjectColor = Color.blue;
     }
-
+       
     Project(string name, Color color) //Overload constrocture.
     {
         ProjectName = name;
