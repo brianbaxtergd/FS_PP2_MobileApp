@@ -68,7 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Prefabs\homeButtonController.cs" />
     <Compile Include="Assets\Scripts\DataController.cs" />
+    <Compile Include="Assets\Scripts\HomeButtonController.cs" />
     <Compile Include="Assets\Scripts\Project.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
     <Compile Include="Assets\Scripts\freeTimer.cs" />

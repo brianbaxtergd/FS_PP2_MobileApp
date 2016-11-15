@@ -256,7 +256,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 788696488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1802029193}
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &788696488
@@ -805,6 +816,7 @@ GameObject:
   - 114: {fileID: 1802029189}
   - 114: {fileID: 1802029188}
   - 114: {fileID: 1802029192}
+  - 114: {fileID: 1802029193}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -906,6 +918,18 @@ MonoBehaviour:
   mTimerButton: {fileID: 1095808367}
   mTimerButtonText: {fileID: 1344804889}
   mTimerStateText: {fileID: 1916224946}
+--- !u!114 &1802029193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802029187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fca3af818e050a4db3695620ac9533b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mHomeButton: {fileID: 788696487}
 --- !u!1 &1916224944
 GameObject:
   m_ObjectHideFlags: 0

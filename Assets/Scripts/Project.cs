@@ -23,9 +23,17 @@ public class Project : MonoBehaviour
         mColor = _color;
     }
     // Tasklist interface.
-    public int GetTaskCount()
+    public int GetActiveTaskCount()
     {
         return mTaskList.Count;
+    }
+    public int GetArchivedTaskCount()
+    {
+        return mArchivedTaskList.Count;
+    }
+    public int GetTotalTaskCount()
+    {
+        return mTaskList.Count + mArchivedTaskList.Count;
     }
     public void AddTask(string _taskName, int _priority)
     {

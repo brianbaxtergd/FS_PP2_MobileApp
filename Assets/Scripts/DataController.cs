@@ -4,52 +4,45 @@ using UnityEngine.SceneManagement;
 
 public class DataController : MonoBehaviour
 {
-    // Data members.
+    // Data.
+    private ArrayList mProjectList;
+    private int mCurrentProjectIndex;
 
-    private ArrayList projects;
-    private int currentProject;
-
-    // Unity Behavior.
-
+    // Unity.
 	void Start ()
     {
         // Initialize project list.
-        projects = new ArrayList();
-        currentProject = -1;
+        mProjectList = new ArrayList();
+        mCurrentProjectIndex = -1;
 	}
 	void Update ()
     {
 	    
 	}
-
-    // Public interface.
-
+    // Project list interface.
     public int GetProjectCount()
     {
-        return projects.Count;
+        return mProjectList.Count;
     }
-
     public void AddProject(string _name, Color _col)
     {
-        //project n = new Project(_name, _col);
-        //projects.Add(n);
-        OpenProject(projects.Count - 1);
+        Project p = new Project(_name, _col);
+        mProjectList.Add(p);
+        OpenProject(mProjectList.Count - 1);
     }
-
     public void RemoveProject(int _index)
     {
-        projects.RemoveAt(_index);
+        mProjectList.RemoveAt(_index);
     }
-
     public void OpenProject(int _index)
     {
-        if (_index > -1 && _index < projects.Count)
+        if (_index > -1 && _index < mProjectList.Count)
         {
-            currentProject = _index;
+            mCurrentProjectIndex = _index;
             SceneManager.LoadScene("ProjectTasks");
         }
     }
-
+    // Save/Load data from local device.
     public bool LoadData(string _path)
     {
         return false;

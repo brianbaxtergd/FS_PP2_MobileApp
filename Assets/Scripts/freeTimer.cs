@@ -2,8 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class freeTimer : MonoBehaviour {
-
+public class freeTimer : MonoBehaviour
+{
     // State data.
     enum timerStates
     {
@@ -30,8 +30,8 @@ public class freeTimer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        mStartTime_work = 10;// * 60;
-        mStartTime_break = 5;// * 60;
+        mStartTime_work = 60 * 25;// * 60;
+        mStartTime_break = 60 * 5;// * 60;
         mTimerStates = new string[2];
         mTimerStates[(int)timerStates.STATE_WORK] = "WORK";
         mTimerStates[(int)timerStates.STATE_BREAK] = "BREAK";
@@ -41,7 +41,6 @@ public class freeTimer : MonoBehaviour {
         mCurrentTime = mStartTime_work;
         UpdateTimerText();
     }
-
     void UpdateTimerText()
     {
         string m, s, t;
@@ -54,7 +53,6 @@ public class freeTimer : MonoBehaviour {
         t += s;
         mTimerText.text = t;
     }
-
     void AtTimerEnd()
     {
         // Init. new state.
@@ -76,7 +74,6 @@ public class freeTimer : MonoBehaviour {
         // Pause timer.
         OnButtonClick();
     }
-
 	// Update is called once per frame
 	void Update ()
     {
@@ -91,7 +88,6 @@ public class freeTimer : MonoBehaviour {
                 AtTimerEnd();
         }
 	}
-
     void OnButtonClick()
     {
         mPaused = !mPaused;
