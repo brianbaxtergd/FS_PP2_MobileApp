@@ -8,7 +8,6 @@ public class Project : MonoBehaviour
     Color mColor;
     ArrayList mTaskList;
     ArrayList mArchivedTaskList;
-
     // Constructors.
     public Project()
     {
@@ -53,17 +52,11 @@ public class Project : MonoBehaviour
         if (_index >= 0 && _index < mTaskList.Count)
             mTaskList.RemoveAt(_index);
     }
-    // Unity function.
+    // Unity functions.
     void Start()
     {
-
     }
     void Update()
-    {
-
-    }
-    // Rendering.
-    public void RenderTaskList()
     {
 
     }

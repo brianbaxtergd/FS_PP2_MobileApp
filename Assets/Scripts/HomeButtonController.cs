@@ -8,12 +8,10 @@ public class HomeButtonController : MonoBehaviour {
 
     [SerializeField]
     Button mHomeButton;
-    [SerializeField]
-    Scene mHomeScene;
 
     public void OnButtonClick()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Home");
     }
 
 	// Unity.
