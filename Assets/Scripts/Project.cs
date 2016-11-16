@@ -12,7 +12,7 @@ public class Project : MonoBehaviour
     public Project()
     {
         mName = "Default Project";
-        Color mColor = Color.white;
+        Color mColor = Color.yellow;
         mTaskList = new ArrayList();
         mArchivedTaskList = new ArrayList();
     }
@@ -33,6 +33,10 @@ public class Project : MonoBehaviour
     public int GetTotalTaskCount()
     {
         return mTaskList.Count + mArchivedTaskList.Count;
+    }
+    public Color GetColor()
+    {
+        return mColor;
     }
     public void AddTask(string _taskName, int _priority)
     {

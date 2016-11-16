@@ -19,6 +19,20 @@ public class DataController : MonoBehaviour
     {
 	    
 	}
+    public Wedge GetWedge(int projectIndex)
+    {
+        Wedge newWedge;
+        if (projectIndex < mProjectList.Count)
+        {
+            Project p = (Project)mProjectList[projectIndex];
+            newWedge = new Wedge(p.GetActiveTaskCount(), p.GetColor(), p.GetTotalTaskCount());
+            newWedge.isReady = true;
+            return newWedge;
+        }
+        newWedge = new Wedge();
+        newWedge.isReady = false;
+        return newWedge;
+    }
     // Project list interface.
     public int GetProjectCount()
     {

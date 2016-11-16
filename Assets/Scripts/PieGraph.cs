@@ -20,6 +20,12 @@ public class Wedge : MonoBehaviour
         completion = _completion;
         color = _color;
     }
+    public Wedge(float _completion, Color _color, int _importance)
+    {
+        importance = _importance;
+        completion = _completion;
+        color = _color;
+    }
 }
 public class PieGraph : MonoBehaviour {
     public ArrayList wedges = new ArrayList();
@@ -60,6 +66,23 @@ public class PieGraph : MonoBehaviour {
         Wedge newWedge = new Wedge(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
         wedges.Add(newWedge);
     }
+    public void Add(Wedge _wedge)
+    {
+        Wedge newWedge = new Wedge(Instantiate(wedgePrefab) as Image, _wedge.completion, _wedge.color, _wedge.importance);
+        wedges.Add(newWedge);
+    }
+    public void ImportUpdate()
+    {
+        DestroyGraph();
+        int length = 0; // use the GetProjectCount fucntion from DataController
+        for (int i = 0; i < length; i++)
+        {
+            Wedge incomingWedge = new Wedge(); //use the GetWedge function from DataController
+            if (incomingWedge.isReady)
+                Add(incomingWedge);
+        }
+        DrawGraph();
+    }
     //Update is called once per minute or everey change
     void Update ()
     {
@@ -88,10 +111,7 @@ public class PieGraph : MonoBehaviour {
                 }
             }
         }
-        Add(rng.Next(1, 10) * 0.1f, color, rng.Next(1, 30));
-    }
-    void OnGUI()
-    {
+        Add(rng.Next(1, 100) * 0.01f, color, rng.Next(1, 10));
     }
     public void DestroyGraph()
     {
