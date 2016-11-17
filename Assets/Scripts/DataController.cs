@@ -27,11 +27,16 @@ public class DataController : MonoBehaviour
     // Data.
     /*static*/
     private ArrayList mProjectList = new ArrayList();
+    PieGraph mPieGraph;
     /*static*/
-    private int mCurrentProjectIndex = -1;
+    //private int mCurrentProjectIndex = -1;
 
     // Unity.
     /*static*/
+    void Star()
+    {
+        mPieGraph = GetComponent<PieGraph>();
+    }
     public LWProject GetWedge(int projectIndex)
     {
         LWProject lwp;
@@ -55,14 +60,23 @@ public class DataController : MonoBehaviour
     public void AddProject(/*string _name*//*, Color _col*/)
     {
         // Grab text from UI component.
-        string _name = mProjectNameInputField.text;
 
         System.Random rng = new System.Random();
         Color color = Color.yellow;
         color = new Color(rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f);
-        Project p = new Project(_name, color);
+        Project p = new Project(mProjectNameInputField.text, color);
         mProjectList.Add(p);
         OpenProject(mProjectList.Count - 1);
+        mPieGraph.Add(1, color, 1);
+    }
+    void UpdateGraph()
+    {
+        mPieGraph.DestroyGraph();
+        for (int i = 0; i < mProjectList.Count; i++)
+        {
+            Project p = (Project)mProjectList[i];
+            mPieGraph.Add(p.GetActiveTaskCount(), p.GetColor(), p.GetTotalTaskCount());
+        }
     }
     /*static*/
     public void RemoveProject(int _index)

@@ -490,6 +490,7 @@ GameObject:
   - 222: {fileID: 1015149475}
   - 114: {fileID: 1015149474}
   - 114: {fileID: 1015149473}
+  - 114: {fileID: 1015149476}
   m_Layer: 5
   m_Name: button_toHome
   m_TagString: Untagged
@@ -555,7 +556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1015149476}
         m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -601,6 +602,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1015149471}
+--- !u!114 &1015149476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015149471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fca3af818e050a4db3695620ac9533b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027645926
 GameObject:
   m_ObjectHideFlags: 0

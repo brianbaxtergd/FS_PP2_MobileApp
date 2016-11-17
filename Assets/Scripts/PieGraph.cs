@@ -48,8 +48,6 @@ public class PieGraph : MonoBehaviour {
 	void Start ()
     {
         mDataController = GetComponent<DataController>();
-        //Add(1.0f, Color.blue, 5);
-        //Add(0.5f, Color.red, 10);
         DrawGraph();
 	}
     public void DrawGraph()
@@ -73,28 +71,14 @@ public class PieGraph : MonoBehaviour {
     }
     public void Add(float _completion, Color _color, int _importance)
     {
-        Wedge newWedge = gameObject.AddComponent<Wedge>();
-        newWedge.Init(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
+        Wedge newWedge = new Wedge(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
+        //Wedge newWedge = gameObject.AddComponent<Wedge>();
+        //newWedge.Init(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
         wedges.Add(newWedge);
-    }
-    public void ImportUpdate()
-    {
-        for (int i = 0; i < mDataController.GetProjectCount(); i++)
-        {
-            LWProject incomingLWProject = mDataController.GetWedge(i); //use the GetWedge function from DataController
-            if (incomingLWProject.isReady)
-            {
-                Wedge incomingWedge = gameObject.AddComponent<Wedge>();
-                incomingWedge.Init(Instantiate(wedgePrefab) as Image, incomingLWProject.completion, incomingLWProject.color, incomingLWProject.importance);
-                wedges.Add(incomingWedge);
-            }
-        }
     }
     //Update is called once per minute or everey change
     void Update ()
     {
-        DestroyGraph();
-        ImportUpdate();
         DrawGraph();
 	}
     public void Test()

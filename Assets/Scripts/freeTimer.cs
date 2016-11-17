@@ -21,6 +21,8 @@ public class freeTimer : MonoBehaviour
     public Text mTimerButtonText;
     [SerializeField]
     public Text mTimerStateText;
+    [SerializeField]
+    public Canvas mCanvas;
     // Timer data.
     private float mCurrentTime;
     private float mStartTime_work;
@@ -30,8 +32,8 @@ public class freeTimer : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        mStartTime_work = 60 * 25;// * 60;
-        mStartTime_break = 60 * 5;// * 60;
+        mStartTime_work = 25;// * 60;
+        mStartTime_break = 5;// * 60;
         mTimerStates = new string[2];
         mTimerStates[(int)timerStates.STATE_WORK] = "WORK";
         mTimerStates[(int)timerStates.STATE_BREAK] = "BREAK";
@@ -61,12 +63,14 @@ public class freeTimer : MonoBehaviour
             // Switch to break-state.
             mState = timerStates.STATE_BREAK;
             mCurrentTime = mStartTime_break;
+            //mCanvas.GetComponentsInParent<>
         }
         else
         {
             // Switch to work-state.
             mState = timerStates.STATE_WORK;
             mCurrentTime = mStartTime_work;
+
         }
         // Update UI text.
         UpdateTimerText();
