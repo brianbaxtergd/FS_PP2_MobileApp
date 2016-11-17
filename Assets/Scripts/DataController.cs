@@ -2,24 +2,14 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class DataController : MonoBehaviour
+static public class DataController
 {
     // Data.
-    private ArrayList mProjectList;
-    private int mCurrentProjectIndex;
+    static private ArrayList mProjectList = new ArrayList();
+    static private int mCurrentProjectIndex = -1;
 
     // Unity.
-	void Start ()
-    {
-        // Initialize project list.
-        mProjectList = new ArrayList();
-        mCurrentProjectIndex = -1;
-	}
-	void Update ()
-    {
-	    
-	}
-    public Wedge GetWedge(int projectIndex)
+    static public Wedge GetWedge(int projectIndex)
     {
         Wedge newWedge;
         if (projectIndex < mProjectList.Count)
@@ -34,21 +24,21 @@ public class DataController : MonoBehaviour
         return newWedge;
     }
     // Project list interface.
-    public int GetProjectCount()
+    static public int GetProjectCount()
     {
         return mProjectList.Count;
     }
-    public void AddProject(string _name, Color _col)
+    static public void AddProject(string _name, Color _col)
     {
         Project p = new Project(_name, _col);
         mProjectList.Add(p);
         OpenProject(mProjectList.Count - 1);
     }
-    public void RemoveProject(int _index)
+    static public void RemoveProject(int _index)
     {
         mProjectList.RemoveAt(_index);
     }
-    public void OpenProject(int _index)
+    static public void OpenProject(int _index)
     {
         if (_index > -1 && _index < mProjectList.Count)
         {
@@ -57,12 +47,12 @@ public class DataController : MonoBehaviour
         }
     }
     // Save/Load data from local device.
-    public bool LoadData(string _path)
+    static public bool LoadData(string _path)
     {
         return false;
     }
 
-    public bool SaveData(string _path)
+    static public bool SaveData(string _path)
     {
         return false;
     }

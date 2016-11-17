@@ -86,6 +86,12 @@ public class PieGraph : MonoBehaviour {
     //Update is called once per minute or everey change
     void Update ()
     {
+        DestroyGraph();
+        for (int i = 0; i < DataController.GetProjectCount(); i++)
+        {
+            wedges.Add(DataController.GetWedge(i));
+
+        }
         DrawGraph();
 	}
     public void Test()
