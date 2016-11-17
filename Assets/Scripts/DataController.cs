@@ -2,26 +2,39 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-static public class DataController
+public class LWProject : MonoBehaviour
+{
+    public int importance;
+    public float completion;
+    public Color color;
+    public bool isReady;
+    public LWProject() { isReady = false; }
+    public LWProject(float _completion, Color _color, int _importance)
+    {
+        importance = _importance;
+        completion = _completion;
+        color = _color;
+    }
+}
+    static public class DataController
 {
     // Data.
     static private ArrayList mProjectList = new ArrayList();
     static private int mCurrentProjectIndex = -1;
 
     // Unity.
-    static public Wedge GetWedge(int projectIndex)
+    static public LWProject GetWedge(int projectIndex)
     {
-        Wedge newWedge;
+        LWProject lwp;
         if (projectIndex < mProjectList.Count)
         {
             Project p = (Project)mProjectList[projectIndex];
-            newWedge = new Wedge(p.GetActiveTaskCount(), p.GetColor(), p.GetTotalTaskCount());
-            newWedge.isReady = true;
-            return newWedge;
+            lwp = new LWProject(p.GetActiveTaskCount(), p.GetColor(), p.GetTotalTaskCount());
+            lwp.isReady = true;
+            return lwp;
         }
-        newWedge = new Wedge();
-        newWedge.isReady = false;
-        return newWedge;
+        lwp = new LWProject();
+        return lwp;
     }
     // Project list interface.
     static public int GetProjectCount()

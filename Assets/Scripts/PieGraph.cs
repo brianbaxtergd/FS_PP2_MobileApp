@@ -11,8 +11,7 @@ public class Wedge : MonoBehaviour
     public float completion;
     public Color color;
     public Image image;
-    public bool isReady;
-    public Wedge() { isReady = false; }
+    public Wedge() {}
     public Wedge(Image _prefab, float _completion, Color _color, int _importance)
     {
         image = _prefab;
@@ -26,10 +25,22 @@ public class Wedge : MonoBehaviour
         completion = _completion;
         color = _color;
     }
+    public void Init(Image _prefab, float _completion, Color _color, int _importance)
+    {
+        image = _prefab;
+        importance = _importance;
+        completion = _completion;
+        color = _color;
+    }
+    public void Init(float _completion, Color _color, int _importance)
+    {
+        importance = _importance;
+        completion = _completion;
+        color = _color;
+    }
 }
 public class PieGraph : MonoBehaviour {
     public ArrayList wedges = new ArrayList();
-    public ArrayList images = new ArrayList();
     public Image wedgePrefab;
     float total;
 	// Use this for initialization
@@ -41,7 +52,6 @@ public class PieGraph : MonoBehaviour {
 	}
     public void DrawGraph()
     {
-        images.Clear();
         float zRotation = 0.0f;
         total = 0;
         foreach (Wedge item in wedges)
@@ -57,41 +67,32 @@ public class PieGraph : MonoBehaviour {
             float scale = (item.completion / 2) + 0.5f;
             item.image.transform.localScale = new Vector3(scale, scale, scale);
             zRotation += item.image.fillAmount * 360;
-            
-            
         }
     }
     public void Add(float _completion, Color _color, int _importance)
     {
-        Wedge newWedge = new Wedge(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
-        wedges.Add(newWedge);
-    }
-    public void Add(Wedge _wedge)
-    {
-        Wedge newWedge = new Wedge(Instantiate(wedgePrefab) as Image, _wedge.completion, _wedge.color, _wedge.importance);
+        Wedge newWedge = gameObject.AddComponent<Wedge>();
+        newWedge.Init(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
         wedges.Add(newWedge);
     }
     public void ImportUpdate()
     {
-        DestroyGraph();
-        int length = 0; // use the GetProjectCount fucntion from DataController
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < DataController.GetProjectCount(); i++)
         {
-            Wedge incomingWedge = new Wedge(); //use the GetWedge function from DataController
-            if (incomingWedge.isReady)
-                Add(incomingWedge);
+            LWProject incomingLWProject = DataController.GetWedge(i); //use the GetWedge function from DataController
+            if (incomingLWProject.isReady)
+            {
+                Wedge incomingWedge = gameObject.AddComponent<Wedge>();
+                incomingWedge.Init(Instantiate(wedgePrefab) as Image, incomingLWProject.completion, incomingLWProject.color, incomingLWProject.importance);
+                wedges.Add(incomingWedge);
+            }
         }
-        DrawGraph();
     }
     //Update is called once per minute or everey change
     void Update ()
     {
         DestroyGraph();
-        for (int i = 0; i < DataController.GetProjectCount(); i++)
-        {
-            wedges.Add(DataController.GetWedge(i));
-
-        }
+        ImportUpdate();
         DrawGraph();
 	}
     public void Test()
