@@ -6,15 +6,13 @@ public class Project : MonoBehaviour
     // Data.
     string mName;
     Color mColor;
-    ArrayList mTaskList;
-    ArrayList mArchivedTaskList;
+    ArrayList mTaskList = new ArrayList();
+    ArrayList mArchivedTaskList = new ArrayList();
     // Constructors.
     public Project()
     {
         mName = "Default Project";
         Color mColor = Color.yellow;
-        mTaskList = new ArrayList();
-        mArchivedTaskList = new ArrayList();
     }
     public Project(string _name, Color _color)
     {
@@ -41,7 +39,7 @@ public class Project : MonoBehaviour
     public void AddTask(string _taskName, int _priority)
     {
         Task t = new Task(_taskName, _priority);
-        mTaskList.Insert(0, t);
+        mTaskList.Add(t);
     }
     public void CompleteTask(int _index)
     {
@@ -55,13 +53,5 @@ public class Project : MonoBehaviour
     {
         if (_index >= 0 && _index < mTaskList.Count)
             mTaskList.RemoveAt(_index);
-    }
-    // Unity functions.
-    void Start()
-    {
-    }
-    void Update()
-    {
-
     }
 }

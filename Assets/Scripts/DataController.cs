@@ -46,6 +46,15 @@ static public class DataController
             SceneManager.LoadScene("ProjectTasks");
         }
     }
+    static public void Test()
+    {
+        Project p = new Project("Test", Color.green);
+        p.AddTask("task", 1);
+        p.AddTask("task2", 1);
+        p.AddTask("task3", 1);
+        p.CompleteTask(1);
+        mProjectList.Add(p);
+    }
     // Save/Load data from local device.
     static public bool LoadData(string _path)
     {
