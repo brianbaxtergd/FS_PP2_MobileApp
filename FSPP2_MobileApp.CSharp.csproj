@@ -74,9 +74,9 @@
     <Compile Include="Assets\Scripts\PieGraph.cs" />
     <Compile Include="Assets\Scripts\Project.cs" />
     <Compile Include="Assets\Scripts\Project_.cs" />
+    <Compile Include="Assets\Scripts\StartQuickTimer.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
     <Compile Include="Assets\Scripts\freeTimer.cs" />
-    <Compile Include="Assets\StartQuickTimer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

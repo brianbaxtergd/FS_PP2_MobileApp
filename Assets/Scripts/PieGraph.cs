@@ -43,11 +43,13 @@ public class PieGraph : MonoBehaviour {
     public ArrayList wedges = new ArrayList();
     public Image wedgePrefab;
     float total;
+    DataController mDataController;
 	// Use this for initialization
 	void Start ()
     {
-        Add(1.0f, Color.blue, 5);
-        Add(0.5f, Color.red, 10);
+        mDataController = GetComponent<DataController>();
+        //Add(1.0f, Color.blue, 5);
+        //Add(0.5f, Color.red, 10);
         DrawGraph();
 	}
     public void DrawGraph()
@@ -77,9 +79,9 @@ public class PieGraph : MonoBehaviour {
     }
     public void ImportUpdate()
     {
-        for (int i = 0; i < DataController.GetProjectCount(); i++)
+        for (int i = 0; i < mDataController.GetProjectCount(); i++)
         {
-            LWProject incomingLWProject = DataController.GetWedge(i); //use the GetWedge function from DataController
+            LWProject incomingLWProject = mDataController.GetWedge(i); //use the GetWedge function from DataController
             if (incomingLWProject.isReady)
             {
                 Wedge incomingWedge = gameObject.AddComponent<Wedge>();

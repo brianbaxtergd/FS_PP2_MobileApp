@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class LWProject : MonoBehaviour
 {
@@ -16,14 +18,21 @@ public class LWProject : MonoBehaviour
         color = _color;
     }
 }
-    static public class DataController
+/*static*/
+public class DataController : MonoBehaviour
 {
+    [SerializeField]
+    InputField mProjectNameInputField;
+
     // Data.
-    static private ArrayList mProjectList = new ArrayList();
-    static private int mCurrentProjectIndex = -1;
+    /*static*/
+    private ArrayList mProjectList = new ArrayList();
+    /*static*/
+    private int mCurrentProjectIndex = -1;
 
     // Unity.
-    static public LWProject GetWedge(int projectIndex)
+    /*static*/
+    public LWProject GetWedge(int projectIndex)
     {
         LWProject lwp;
         if (projectIndex < mProjectList.Count)
@@ -37,29 +46,40 @@ public class LWProject : MonoBehaviour
         return lwp;
     }
     // Project list interface.
-    static public int GetProjectCount()
+    /*static*/
+    public int GetProjectCount()
     {
         return mProjectList.Count;
     }
-    static public void AddProject(string _name, Color _col)
+    /*static*/
+    public void AddProject(/*string _name*//*, Color _col*/)
     {
-        Project p = new Project(_name, _col);
+        // Grab text from UI component.
+        string _name = mProjectNameInputField.text;
+
+        System.Random rng = new System.Random();
+        Color color = Color.yellow;
+        color = new Color(rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f);
+        Project p = new Project(_name, color);
         mProjectList.Add(p);
         OpenProject(mProjectList.Count - 1);
     }
-    static public void RemoveProject(int _index)
+    /*static*/
+    public void RemoveProject(int _index)
     {
         mProjectList.RemoveAt(_index);
     }
-    static public void OpenProject(int _index)
+    /*static*/
+    public void OpenProject(int _index)
     {
         if (_index > -1 && _index < mProjectList.Count)
         {
-            mCurrentProjectIndex = _index;
-            SceneManager.LoadScene("ProjectTasks");
+            //mCurrentProjectIndex = _index;
+            //SceneManager.LoadScene("ProjectTasks");
         }
     }
-    static public void Test()
+    /*static*/
+    public void Test()
     {
         Project p = new Project("Test", Color.green);
         p.AddTask("task", 1);
@@ -69,12 +89,13 @@ public class LWProject : MonoBehaviour
         mProjectList.Add(p);
     }
     // Save/Load data from local device.
-    static public bool LoadData(string _path)
+    /*static*/
+    public bool LoadData(string _path)
     {
         return false;
     }
 
-    static public bool SaveData(string _path)
+    /*static*/ public bool SaveData(string _path)
     {
         return false;
     }
