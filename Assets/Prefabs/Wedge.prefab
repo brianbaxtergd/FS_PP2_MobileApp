@@ -22,6 +22,7 @@ GameObject:
   - 222: {fileID: 222000010374923384}
   - 114: {fileID: 114000013161140184}
   - 114: {fileID: 114000010641410236}
+  - 114: {fileID: 114000013771636648}
   m_Layer: 5
   m_Name: Wedge
   m_TagString: Untagged
@@ -97,6 +98,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 2
+--- !u!114 &114000013771636648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010915927472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ec01976baa73b40ad7d600e1b6ed31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222000010374923384
 CanvasRenderer:
   m_ObjectHideFlags: 1

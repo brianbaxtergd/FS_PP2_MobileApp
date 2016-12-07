@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Task : MonoBehaviour
+public class Task : ScriptableObject
 {
     enum taskPriorities
     {

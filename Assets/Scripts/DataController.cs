@@ -25,15 +25,17 @@ public class DataController : MonoBehaviour
     InputField mProjectNameInputField;
 
     // Data.
-    /*static*/
     private ArrayList mProjectList = new ArrayList();
     PieGraph mPieGraph;
-    /*static*/
     //private int mCurrentProjectIndex = -1;
 
     // Unity.
-    /*static*/
-    void Star()
+    void Awake()
+    {
+        // Force object persistence between scenes.
+        DontDestroyOnLoad(transform.gameObject);
+    }
+    void Start()
     {
         mPieGraph = GetComponent<PieGraph>();
     }
@@ -51,23 +53,22 @@ public class DataController : MonoBehaviour
         return lwp;
     }
     // Project list interface.
-    /*static*/
     public int GetProjectCount()
     {
         return mProjectList.Count;
     }
-    /*static*/
-    public void AddProject(/*string _name*//*, Color _col*/)
+    public void AddProject()
     {
         // Grab text from UI component.
 
         System.Random rng = new System.Random();
         Color color = Color.yellow;
         color = new Color(rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f);
-        Project p = new Project(mProjectNameInputField.text, color);
+        Project p = new Project(mProjectNameInputField.textComponent.text, color);
+        
         mProjectList.Add(p);
         OpenProject(mProjectList.Count - 1);
-        mPieGraph.Add(1, color, 1);
+        //mPieGraph.Add(1, color, 1); <-- This was causing a null ref error.
     }
     void UpdateGraph()
     {
@@ -78,12 +79,10 @@ public class DataController : MonoBehaviour
             mPieGraph.Add(p.GetActiveTaskCount(), p.GetColor(), p.GetTotalTaskCount());
         }
     }
-    /*static*/
     public void RemoveProject(int _index)
     {
         mProjectList.RemoveAt(_index);
     }
-    /*static*/
     public void OpenProject(int _index)
     {
         if (_index > -1 && _index < mProjectList.Count)
@@ -92,7 +91,6 @@ public class DataController : MonoBehaviour
             //SceneManager.LoadScene("ProjectTasks");
         }
     }
-    /*static*/
     public void Test()
     {
         Project p = new Project("Test", Color.green);
@@ -103,13 +101,12 @@ public class DataController : MonoBehaviour
         mProjectList.Add(p);
     }
     // Save/Load data from local device.
-    /*static*/
     public bool LoadData(string _path)
     {
         return false;
     }
 
-    /*static*/ public bool SaveData(string _path)
+    public bool SaveData(string _path)
     {
         return false;
     }

@@ -71,6 +71,7 @@ public class PieGraph : MonoBehaviour {
     }
     public void Add(float _completion, Color _color, int _importance)
     {
+        wedges.Add(Instantiate(wedgePrefab));
         Wedge newWedge = new Wedge(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
         //Wedge newWedge = gameObject.AddComponent<Wedge>();
         //newWedge.Init(Instantiate(wedgePrefab) as Image, _completion, _color, _importance);
