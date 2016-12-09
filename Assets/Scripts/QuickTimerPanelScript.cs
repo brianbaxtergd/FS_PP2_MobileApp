@@ -5,15 +5,18 @@ using System.Collections;
 public class QuickTimerPanelScript : MonoBehaviour
 {
     // Data.
-    Color bgCol_work = Color.red;
-    Color fgCol_work = Color.white;
-    Color bgCol_break = Color.blue;
-    Color fgCol_break = Color.cyan;
+    public Color bgCol_work;
+    public Color fgCol_work;
+    public Color bgCol_break;
+    public Color fgCol_break;
     bool colorFadeActive = false;
     bool isWorkState = true;
     float fadeTimer_cur = 0.0f;
     float fadeTimer_max = 10.0f;
     Image img;
+    public Text timerValueText;
+    public Text timerStartPauseButtonText;
+    public Text timerStateText;
 
     // Methods.
     public void SetColorFade(bool _isActive)
@@ -45,10 +48,16 @@ public class QuickTimerPanelScript : MonoBehaviour
                 if (isWorkState)
                 {
                     img.color = bgCol_work;
+                    timerValueText.color = fgCol_work;
+                    timerStateText.color = fgCol_work;
+                    timerStartPauseButtonText.color = fgCol_work;
                 }
                 else
                 {
                     img.color = bgCol_break;
+                    timerValueText.color = fgCol_break;
+                    timerStateText.color = fgCol_break;
+                    timerStartPauseButtonText.color = fgCol_break;
                 }
                 // Exit Update() early.
                 return;
@@ -59,11 +68,17 @@ public class QuickTimerPanelScript : MonoBehaviour
             {
                 // Fade colors toward break-state.
                 img.color = Color.Lerp(bgCol_work, bgCol_break, t);
+                timerValueText.color = Color.Lerp(fgCol_work, fgCol_break, t);
+                timerStateText.color = Color.Lerp(fgCol_work, fgCol_break, t);
+                timerStartPauseButtonText.color = Color.Lerp(fgCol_work, fgCol_break, t);
             }
             else
             {
                 // Fade colors toward work-state.
                 img.color = Color.Lerp(bgCol_break, bgCol_work, t);
+                timerValueText.color = Color.Lerp(fgCol_break, fgCol_work, t);
+                timerStateText.color = Color.Lerp(fgCol_break, fgCol_work, t);
+                timerStartPauseButtonText.color = Color.Lerp(fgCol_break, fgCol_work, t);
             }
         }
     }
