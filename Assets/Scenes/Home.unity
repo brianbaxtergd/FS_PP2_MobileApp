@@ -286,7 +286,6 @@ GameObject:
   - 222: {fileID: 189120491}
   - 114: {fileID: 189120490}
   - 114: {fileID: 189120489}
-  - 114: {fileID: 189120492}
   m_Layer: 5
   m_Name: QuickTimerButton
   m_TagString: Untagged
@@ -352,8 +351,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 189120492}
-        m_MethodName: OnButtonClick_startQuickTimer
+      - m_Target: {fileID: 73738467}
+        m_MethodName: OnClick_QuickTimerButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -398,17 +397,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189120487}
---- !u!114 &189120492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 189120487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7474beb72cf5e44478734dfc4f8f3462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &194958142
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +408,6 @@ GameObject:
   - 222: {fileID: 194958147}
   - 114: {fileID: 194958146}
   - 114: {fileID: 194958145}
-  - 114: {fileID: 194958144}
   m_Layer: 5
   m_Name: QuickTimerButton
   m_TagString: Untagged
@@ -447,17 +434,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &194958144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 194958142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7474beb72cf5e44478734dfc4f8f3462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &194958145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +473,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 194958144}
+      - m_Target: {fileID: 0}
         m_MethodName: OnButtonClick_startQuickTimer
         m_Mode: 1
         m_Arguments:
@@ -901,7 +877,7 @@ GameObject:
   - 222: {fileID: 594475425}
   - 114: {fileID: 594475424}
   m_Layer: 5
-  m_Name: text_timerState
+  m_Name: TimerStateText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1122,7 +1098,7 @@ GameObject:
   - 222: {fileID: 767367148}
   - 114: {fileID: 767367147}
   m_Layer: 5
-  m_Name: text_timerValue
+  m_Name: TimerValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1388,7 +1364,7 @@ GameObject:
   - 114: {fileID: 897801864}
   - 114: {fileID: 897801863}
   m_Layer: 5
-  m_Name: button_toHome
+  m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,8 +1428,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 73738467}
+        m_MethodName: OnClick_HomeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1774,7 +1750,6 @@ GameObject:
   - 114: {fileID: 1046069831}
   - 114: {fileID: 1046069830}
   - 114: {fileID: 1046069834}
-  - 114: {fileID: 1046069833}
   m_Layer: 5
   m_Name: QuickTimerPanel
   m_TagString: Untagged
@@ -1848,17 +1823,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1046069828}
---- !u!114 &1046069833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1046069828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fca3af818e050a4db3695620ac9533b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1046069834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,7 +2183,7 @@ GameObject:
   - 114: {fileID: 1267206956}
   - 114: {fileID: 1267206958}
   m_Layer: 5
-  m_Name: button_timerStartPause
+  m_Name: TimerStartPauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

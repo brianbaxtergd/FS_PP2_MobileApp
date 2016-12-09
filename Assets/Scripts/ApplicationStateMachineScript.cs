@@ -83,8 +83,20 @@ public class ApplicationStateMachineScript : MonoBehaviour
                 break;
         }
     }
-    public void OnClick_QuickTimer()
+    public void OnClick_QuickTimerButton()
     {
-
+        // Switch to QuickTimer-state.
+        SetState(appStates.quickTimer);
+    }
+    public void OnClick_HomeButton()
+    {
+        // Switch to Home-state.
+        SetState(appStates.home);
+    }
+    public void OnClick_ProjectButton()
+    {
+        // Determine which wedge was clicked & set 'curProject' value in application controller?
+        // Switch to Project-state.
+        SetState(appStates.project);
     }
 }
