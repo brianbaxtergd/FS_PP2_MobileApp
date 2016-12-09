@@ -13,27 +13,24 @@ public class freeTimer : MonoBehaviour
     timerStates mState;
     bool mPaused;
     // Components.
-    [SerializeField]
     public Text mTimerText;
-    [SerializeField]
     public Button mTimerButton;
-    [SerializeField]
     public Text mTimerButtonText;
-    [SerializeField]
     public Text mTimerStateText;
-    [SerializeField]
     public Canvas mCanvas;
+    private PanelScript mPanelScript; // Does this find the script in the Panel child-obj?
     // Timer data.
     private float mCurrentTime;
     private float mStartTime_work;
     private float mStartTime_break;
     private string[] mTimerStates;
 
-	// Use this for initialization
+	// Methods.
 	void Start ()
     {
-        mStartTime_work = 25;// * 60;
-        mStartTime_break = 5;// * 60;
+        mPanelScript = GetComponent<PanelScript>();
+        mStartTime_work = 10;// * 60;
+        mStartTime_break = 10;// * 60;
         mTimerStates = new string[2];
         mTimerStates[(int)timerStates.STATE_WORK] = "WORK";
         mTimerStates[(int)timerStates.STATE_BREAK] = "BREAK";

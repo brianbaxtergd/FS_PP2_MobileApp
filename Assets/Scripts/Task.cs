@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Task : ScriptableObject
+public class Task /*: ScriptableObject*/
 {
+    // Data members.
     enum taskPriorities
     {
         LOW,
@@ -23,12 +24,17 @@ public class Task : ScriptableObject
         taskName = _taskName;
         priority = (taskPriorities)_priority;
     }
-
+    // Sets all initial values as an overloaded constructor would.
+    public void Init(int _priority, string _name)
+    {
+        priority = (taskPriorities)_priority;
+        taskName = _name;
+    }
+    // Unity methods.
     void Start ()
     {
 	
 	}
-	
 	void Update ()
     {
 	
