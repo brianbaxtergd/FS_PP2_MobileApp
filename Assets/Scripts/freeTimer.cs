@@ -17,12 +17,20 @@ public class freeTimer : MonoBehaviour
     public Button mTimerButton;
     public Text mTimerButtonText;
     public Text mTimerStateText;
+    public Text mEndMessageText;
     public Canvas mCanvas;
+    public AudioSource audioSource;
     private QuickTimerPanelScript mPanelScript; // Does this find the script in the Panel child-obj?
+    // Resources.
+    public AudioClip sndTimerWarning;
+    public AudioClip sndTimerEnd;
+    string[] breakMessages;
+    string[] workMessages;
     // Timer data.
     private float mCurrentTime;
     private float mStartTime_work;
     private float mStartTime_break;
+    public float mWarningTime;
     private string[] mTimerStates;
 
 	// Methods.
@@ -54,13 +62,14 @@ public class freeTimer : MonoBehaviour
     }
     void AtTimerEnd()
     {
+        // Play audio.
+        audioSource.PlayOneShot(sndTimerEnd);
         // Init. new state.
         if (mState == timerStates.STATE_WORK)
         {
             // Switch to break-state.
             mState = timerStates.STATE_BREAK;
             mCurrentTime = mStartTime_break;
-            //mCanvas.GetComponentsInParent<>
         }
         else
         {
@@ -84,9 +93,16 @@ public class freeTimer : MonoBehaviour
             mCurrentTime -= Time.deltaTime;
             // Update timer text.
             UpdateTimerText();
-            // Watch for timer to reach zero.
+            // Watch timer tick.
             if (mCurrentTime <= 0)
                 AtTimerEnd();
+            else if (mCurrentTime <= mWarningTime && !mPanelScript.GetColorFade())
+            {
+                // Trigger color fading in panel script.
+                mPanelScript.SetColorFade(true);
+                // Play ding audio.
+                audioSource.PlayOneShot(sndTimerWarning);
+            }
         }
 	}
     public void OnButtonClick_startStop()
