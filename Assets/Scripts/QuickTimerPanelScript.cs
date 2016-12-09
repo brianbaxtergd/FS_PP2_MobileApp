@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PanelScript : MonoBehaviour
+public class QuickTimerPanelScript : MonoBehaviour
 {
     // Data.
     Color bgCol_work = Color.red;
@@ -22,14 +22,14 @@ public class PanelScript : MonoBehaviour
     }
 
     // Unity Methods.
-    void Start ()
+    void Start()
     {
         img = GetComponent<Image>();
         SetColorFade(true);
-	}
-	void Update ()
+    }
+    void Update()
     {
-	    // Color fading.
+        // Color fading.
         if (colorFadeActive)
         {
             // Update timer.
@@ -66,5 +66,5 @@ public class PanelScript : MonoBehaviour
                 img.color = Color.Lerp(bgCol_break, bgCol_work, t);
             }
         }
-	}
+    }
 }

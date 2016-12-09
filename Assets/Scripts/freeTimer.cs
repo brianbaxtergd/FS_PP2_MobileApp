@@ -18,7 +18,7 @@ public class freeTimer : MonoBehaviour
     public Text mTimerButtonText;
     public Text mTimerStateText;
     public Canvas mCanvas;
-    private PanelScript mPanelScript; // Does this find the script in the Panel child-obj?
+    private QuickTimerPanelScript mPanelScript; // Does this find the script in the Panel child-obj?
     // Timer data.
     private float mCurrentTime;
     private float mStartTime_work;
@@ -28,7 +28,7 @@ public class freeTimer : MonoBehaviour
 	// Methods.
 	void Start ()
     {
-        mPanelScript = GetComponent<PanelScript>();
+        mPanelScript = GetComponent<QuickTimerPanelScript>();
         mStartTime_work = 10;// * 60;
         mStartTime_break = 10;// * 60;
         mTimerStates = new string[2];
