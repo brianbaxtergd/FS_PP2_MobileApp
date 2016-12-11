@@ -61,12 +61,12 @@ public class freeTimer : MonoBehaviour
         mTimerStates[(int)timerStates.STATE_BREAK] = "BREAK";
         // Messages.
         workMessages = new string[3];
-        workMessages[0] = "It's time to crush tasks and chew bubblegum.. and you're all out of gum.";
-        workMessages[1] = "Start where you are. Use what you have. Do what you can.";
-        workMessages[2] = "Back for more? Let's get to it!";
+        workMessages[0] = "Time to crush tasks and chew bubble gum\n..and you're all out of gum.";
+        workMessages[1] = "Start where you are.\nUse what you have.\nDo what you can.";
+        workMessages[2] = "Let's go, champ!";
         breakMessages = new string[3];
-        breakMessages[0] = "Well done! Take a breather and put your mind at ease.";
-        breakMessages[1] = "Time for a snack, you workaholic.";
+        breakMessages[0] = "Well done.";
+        breakMessages[1] = "That's enough for now. Go relax!";
         breakMessages[2] = "Time for a break. You earned it!";
     }
     void UpdateMessage()
