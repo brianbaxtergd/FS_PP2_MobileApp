@@ -13,6 +13,7 @@ public class WedgeScript : MonoBehaviour
     public float angle;
     public float radius;
     public Color color;
+    private GameObject applicationController;
 
     // Wedge prefab initializer.
     public void InitWedgePrefab(int _index, float _angle, float _radius, Color _color)
@@ -26,7 +27,7 @@ public class WedgeScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-	
+        applicationController = GameObject.Find("ApplicationController"); // Must find specific instance of prefab by name, or else project data is not accessible.
 	}
 	
 	// Update is called once per frame
@@ -34,4 +35,15 @@ public class WedgeScript : MonoBehaviour
     {
 	
 	}
+
+    public void OnButtonClick()
+    {
+        // Update Data Controller's currently selected project index.
+        DataController dc = applicationController.GetComponent<DataController>();
+        dc.CurrentProjectIndex = index;
+        // Call Main Canvas's Application State Machine Script method for opening a project.
+        Canvas c = FindObjectOfType<Canvas>();
+        ApplicationStateMachineScript appScript = c.GetComponent<ApplicationStateMachineScript>();
+        appScript.OnClick_ProjectButton();
+    }
 }

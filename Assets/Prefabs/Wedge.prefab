@@ -68,7 +68,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114000013161140184}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114000013771636648}
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114000013161140184
@@ -113,6 +124,8 @@ MonoBehaviour:
   angle: 0
   radius: 0
   color: {r: 0, g: 0, b: 0, a: 0}
+  applicationController: {fileID: 1000010010497620, guid: f295e621ddb56c4468381698093d2309,
+    type: 2}
 --- !u!222 &222000010374923384
 CanvasRenderer:
   m_ObjectHideFlags: 1

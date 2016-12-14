@@ -17,11 +17,15 @@ public class ApplicationStateMachineScript : MonoBehaviour
     public GameObject panelHome;
     public GameObject panelProject;
     public GameObject panelQuickTimer;
+    public Text toolBarTitleText;
+    public GameObject applicationController;
+
 
     // Unity methods.
     void Start()
     {
         state = appStates.home;
+        toolBarTitleText.text = "Home";
     }
     void Update()
     {
@@ -50,12 +54,21 @@ public class ApplicationStateMachineScript : MonoBehaviour
             {
                 case appStates.home:
                     panelHome.SetActive(true);
+                    toolBarTitleText.text = "Home";
                     break;
                 case appStates.project:
                     panelProject.SetActive(true);
+                    // Update tool bar title.
+                    DataController dc = applicationController.GetComponent<DataController>();
+                    Project p = dc.mProjectList[dc.CurrentProjectIndex] as Project;
+                    toolBarTitleText.text = p.Name;
+                    // Update canvas bg color.
+                    panelProject.GetComponent<Image>().color = p.GetColor();
                     break;
                 case appStates.quickTimer:
                     panelQuickTimer.SetActive(true);
+                    // Update tool bar title.
+                    toolBarTitleText.text = "Quick Timer";
                     break;
                 default:
                     break;
@@ -95,7 +108,6 @@ public class ApplicationStateMachineScript : MonoBehaviour
     }
     public void OnClick_ProjectButton()
     {
-        // Determine which wedge was clicked & set 'curProject' value in application controller?
         // Switch to Project-state.
         SetState(appStates.project);
     }

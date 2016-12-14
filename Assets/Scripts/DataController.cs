@@ -38,6 +38,19 @@ public class DataController : MonoBehaviour
         projectsGraphScript.UpdateGraph();
     }
 
+    // Property to get/set current project index.
+    public int CurrentProjectIndex
+    {
+        get
+        {
+            return mCurrentProjectIndex;
+        }
+        set
+        {
+            mCurrentProjectIndex = value;
+        }
+    }
+
     public void RemoveProject(int _index)
     {
         mProjectList.RemoveAt(_index);

@@ -25,6 +25,17 @@ public class Project
         mTaskList.Add(new Task());
     }
     // Tasklist interface.
+    public string Name
+    {
+        get
+        {
+            return mName;
+        }
+        set
+        {
+            mName = value;
+        }
+    }
     public int GetActiveTaskCount()
     {
         return mTaskList.Count;
