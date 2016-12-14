@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Project : ScriptableObject
+public class Project
 {
     // Data.
     string mName;
@@ -14,11 +14,15 @@ public class Project : ScriptableObject
     {
         mName = "Default Project";
         Color mColor = Color.yellow;
+        // Adds a blank task to every new project.
+        mTaskList.Add(new Task());
     }
     public Project(string _name, Color _color)
     {
         mName = _name;
         mColor = _color;
+        // Adds a blank task to every new project.
+        mTaskList.Add(new Task());
     }
     // Tasklist interface.
     public int GetActiveTaskCount()

@@ -39,8 +39,9 @@ public class Wedge : MonoBehaviour
         color = _color;
     }
 }
-public class PieGraph : MonoBehaviour {
-    public ArrayList wedges = new ArrayList();
+public class PieGraph : MonoBehaviour
+{
+    ArrayList wedges = new ArrayList();
     public Image wedgePrefab;
     float total;
     DataController mDataController;
@@ -64,7 +65,7 @@ public class PieGraph : MonoBehaviour {
             item.image.color = item.color;
             item.image.fillAmount = item.importance / total;
             item.image.transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, zRotation));
-            float scale = (item.completion / 2) + 0.5f;
+            float scale = (item.completion / 2.0f) + 0.5f;
             item.image.transform.localScale = new Vector3(scale, scale, scale);
             zRotation += item.image.fillAmount * 360;
         }

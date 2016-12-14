@@ -19,8 +19,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013505733046}
-  - 114: {fileID: 114000014193451550}
-  - 114: {fileID: 114000012851100672}
   - 114: {fileID: 114000011892189430}
   m_Layer: 0
   m_Name: ApplicationController
@@ -54,25 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mProjectNameInputField: {fileID: 0}
---- !u!114 &114000012851100672
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010010497620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7e7d4c0f13c324abb1050598bc9d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000014193451550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010010497620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37542d73c890c5b4b8848722eebb0e37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  projectsGraph: {fileID: 0}

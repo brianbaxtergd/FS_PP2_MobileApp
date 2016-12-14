@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000013771636648}
   m_Layer: 5
   m_Name: Wedge
-  m_TagString: Untagged
+  m_TagString: Wedge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ec01976baa73b40ad7d600e1b6ed31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
+  angle: 0
+  radius: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &222000010374923384
 CanvasRenderer:
   m_ObjectHideFlags: 1
