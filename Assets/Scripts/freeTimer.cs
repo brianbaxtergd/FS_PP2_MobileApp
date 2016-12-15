@@ -22,6 +22,7 @@ public class freeTimer : MonoBehaviour
     public Canvas mCanvas;
     public AudioSource audioSource;
     private QuickTimerPanelScript mPanelScript; // Does this find the script in the Panel child-obj?
+    private ApplicationStateMachineScript asmc;
     // Resources.
     public AudioClip sndTimerWarning;
     public AudioClip sndTimerEnd;
@@ -45,6 +46,7 @@ public class freeTimer : MonoBehaviour
         InitStrings();
         // Store script component(s).
         mPanelScript = GetComponent<QuickTimerPanelScript>();
+        asmc = GameObject.Find("MainCanvas").GetComponent<ApplicationStateMachineScript>();
         // Prep initial timer-state.
         mState = timerStates.STATE_WORK;
         mTimerStateText.text = mTimerStates[(int)timerStates.STATE_WORK];
@@ -122,7 +124,8 @@ public class freeTimer : MonoBehaviour
     void AtTimerEnd()
     {
         // Play audio.
-        audioSource.PlayOneShot(sndTimerEnd);
+        if (asmc.GetTimerAudio())
+            audioSource.PlayOneShot(sndTimerEnd);
         // Init. new state.
         if (mState == timerStates.STATE_WORK)
         {
@@ -140,15 +143,23 @@ public class freeTimer : MonoBehaviour
         // Update UI text.
         UpdateTimerText();
         mTimerStateText.text = mTimerStates[(int)mState];
-        RandomizeMessage();
-        showMessage = true;
+        if (asmc.GetTimerMessages())
+        {
+            RandomizeMessage();
+            showMessage = true;
+        }
         // Pause timer.
         OnButtonClick_startStop();
     }
 	// Update is called once per frame
 	void Update ()
     {
-        UpdateMessage();
+        if (asmc.GetTimerMessages())
+            UpdateMessage();
+        else
+        {
+            mEndMessageText.text = "";
+        }
 
         if (!mPaused)
         {
@@ -164,7 +175,8 @@ public class freeTimer : MonoBehaviour
                 // Trigger color fading in panel script.
                 mPanelScript.SetColorFade(true);
                 // Play warning audio as timer approaches end.
-                audioSource.PlayOneShot(sndTimerWarning);
+                if (GameObject.Find("MainCanvas").GetComponent<ApplicationStateMachineScript>().GetTimerAudio())
+                    audioSource.PlayOneShot(sndTimerWarning);
             }
         }
 	}

@@ -19,7 +19,11 @@ public class ApplicationStateMachineScript : MonoBehaviour
     public GameObject panelQuickTimer;
     public Text toolBarTitleText;
     public GameObject applicationController;
+    public GameObject panelSettings;
 
+    // User settings.
+    bool timerAudio = true;
+    bool timerMessages = true;
 
     // Unity methods.
     void Start()
@@ -36,6 +40,14 @@ public class ApplicationStateMachineScript : MonoBehaviour
     public appStates GetState()
     {
         return state;
+    }
+    public bool GetTimerAudio()
+    {
+        return timerAudio;
+    }
+    public bool GetTimerMessages()
+    {
+        return timerMessages;
     }
 
     // Mutators.
@@ -110,5 +122,41 @@ public class ApplicationStateMachineScript : MonoBehaviour
     {
         // Switch to Project-state.
         SetState(appStates.project);
+    }
+    public void onClick_ToggleSettings()
+    {
+        if (!panelSettings.activeSelf)
+        {
+            // Update toolbar title text.
+            toolBarTitleText.text = "Settings";
+            // Open settings.
+            panelSettings.SetActive(true);
+        }
+        else
+        {
+            // Update all values.
+            timerAudio = panelSettings.transform.FindChild("TimerAudioToggle").GetComponent<Toggle>().isOn;
+            timerMessages = panelSettings.transform.FindChild("TimerMessagesToggle").GetComponent<Toggle>().isOn;
+            // Close settings.
+            panelSettings.SetActive(false);
+            // Revert toolbar title text.
+            switch(state)
+            {
+                case appStates.home:
+                    toolBarTitleText.text = "Home";
+                    break;
+                case appStates.project:
+                    DataController dc = applicationController.GetComponent<DataController>();
+                    Project p = dc.mProjectList[dc.CurrentProjectIndex] as Project;
+                    toolBarTitleText.text = p.Name;
+                    break;
+                case appStates.quickTimer:
+                    toolBarTitleText.text = "Quick Timer";
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }
