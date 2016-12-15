@@ -22,6 +22,23 @@ public class QuickTimerPanelScript : MonoBehaviour
     public Text timerValueText;
     public Text timerStartPauseButtonText;
     public Text timerStateText;
+    public GameObject backButton;
+    public GameObject startStopButton; // Text stored in above data member.
+
+    // Unity Methods.
+    void Start()
+    {
+        img = GetComponent<Image>();
+
+        // Testing fade.
+        //SetColorFade(true);
+    }
+    void Update()
+    {
+        // Color fading.
+        if (colorFadeActive)
+            UpdateColors();
+    }
 
     // Methods.
     public bool GetColorFade()
@@ -49,14 +66,24 @@ public class QuickTimerPanelScript : MonoBehaviour
                 img.color = bgCol_work;
                 timerValueText.color = fgCol_work;
                 timerStateText.color = fgCol_work;
-                //timerStartPauseButtonText.color = fgCol_work;
+                Color c = fgCol_work;
+                c.a = 0.5f;
+                backButton.GetComponent<Image>().color = c;
+                startStopButton.GetComponent<Image>().color = c;
+                backButton.transform.Find("Text").GetComponent<Text>().color = bgCol_work;
+                startStopButton.transform.Find("Text").GetComponent<Text>().color = bgCol_work;
             }
             else
             {
                 img.color = bgCol_break;
                 timerValueText.color = fgCol_break;
                 timerStateText.color = fgCol_break;
-                //timerStartPauseButtonText.color = fgCol_break;
+                Color c = fgCol_break;
+                c.a = 0.5f;
+                backButton.GetComponent<Image>().color = c;
+                startStopButton.GetComponent<Image>().color = c;
+                backButton.transform.Find("Text").GetComponent<Text>().color = bgCol_break;
+                startStopButton.transform.Find("Text").GetComponent<Text>().color = bgCol_break;
             }
             // Exit Update() early.
             return;
@@ -69,7 +96,14 @@ public class QuickTimerPanelScript : MonoBehaviour
             img.color = Color.Lerp(bgCol_work, bgCol_break, t);
             timerValueText.color = Color.Lerp(fgCol_work, fgCol_break, t);
             timerStateText.color = Color.Lerp(fgCol_work, fgCol_break, t);
-            //timerStartPauseButtonText.color = Color.Lerp(fgCol_work, fgCol_break, t);
+            // Buttons.
+            Color c = Color.Lerp(fgCol_work, fgCol_break, t);
+            c.a = 0.5f;
+            backButton.GetComponent<Image>().color = c;
+            startStopButton.GetComponent<Image>().color = c;
+            c = Color.Lerp(bgCol_work, bgCol_break, t);
+            backButton.transform.Find("Text").GetComponent<Text>().color = c;
+            startStopButton.transform.Find("Text").GetComponent<Text>().color = c;
         }
         else
         {
@@ -77,22 +111,14 @@ public class QuickTimerPanelScript : MonoBehaviour
             img.color = Color.Lerp(bgCol_break, bgCol_work, t);
             timerValueText.color = Color.Lerp(fgCol_break, fgCol_work, t);
             timerStateText.color = Color.Lerp(fgCol_break, fgCol_work, t);
-            //timerStartPauseButtonText.color = Color.Lerp(fgCol_break, fgCol_work, t);
+            // Buttons.
+            Color c = Color.Lerp(fgCol_break, fgCol_work, t);
+            c.a = 0.5f;
+            backButton.GetComponent<Image>().color = c;
+            startStopButton.GetComponent<Image>().color = c;
+            c = Color.Lerp(bgCol_break, bgCol_work, t);
+            backButton.transform.Find("Text").GetComponent<Text>().color = c;
+            startStopButton.transform.Find("Text").GetComponent<Text>().color = c;
         }
     }
-
-    // Unity Methods.
-    void Start()
-    {
-        img = GetComponent<Image>();
-        // Testing fade.
-        //SetColorFade(true);
-    }
-    void Update()
-    {
-        // Color fading.
-        if (colorFadeActive)
-            UpdateColors();
-    }
-
 }
