@@ -7,6 +7,7 @@ public class DataController : MonoBehaviour
 {
     // Add New Project Panel Components.
     public InputField mProjectNameInputField;
+    public GameObject addProjectPanel;
 
     // Other components.
     public GameObject projectsGraph;
@@ -31,8 +32,7 @@ public class DataController : MonoBehaviour
     public void AddProject()
     {
         System.Random rng = new System.Random();
-        Color color = new Color(rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f, rng.Next(255) * 0.00392f);
-        Project p = new Project(mProjectNameInputField.textComponent.text, color);
+        Project p = new Project(mProjectNameInputField.textComponent.text, addProjectPanel.GetComponent<Image>().color);
         mProjectList.Add(p);
         // Update projects graph.
         projectsGraphScript.UpdateGraph();
