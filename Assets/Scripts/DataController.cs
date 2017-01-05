@@ -32,7 +32,7 @@ public class DataController : MonoBehaviour
     public void AddProject()
     {
         System.Random rng = new System.Random();
-        Project p = new Project(mProjectNameInputField.textComponent.text, addProjectPanel.GetComponent<Image>().color);
+        Project p = new Project(mProjectNameInputField.textComponent.text, addProjectPanel.GetComponent<AddProjectPanelScript>().GetCurrentColorChoice());
         mProjectList.Add(p);
         // Update projects graph.
         projectsGraphScript.UpdateGraph();

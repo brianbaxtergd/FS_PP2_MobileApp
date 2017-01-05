@@ -10,18 +10,26 @@ using System.Collections;
 
 public class AddProjectPanelScript : MonoBehaviour
 {
+    // Project name data.
     public InputField nameInputField;
     public Text nameText;
+
+    // Project color data.
+    bool isFadingColor = false;
     Image colorImage;
+    Color curProjectColor; // Most recent color selection made by user. Stored as project color on ok-click.
+    Color prevProjectColor; // Previous color selection made by user. Used for fading to new color.
+    float colorFadeTimer_cur = 0.0f;
+    public float colorFadeTimer_max; // Set in inspector. Timer increments using delta time from 0 to max value.
+
+    // Panel buttons (excluding color choices).
     public Button okButton;
 
-	// Use this for initialization
-	void Start ()
+    // Overridden Unity methods.
+    void Start ()
     {
         colorImage = GetComponent<Image>();
 	}
-	
-	// Update is called once per frame
 	void Update ()
     {
 	    // Set OK-button's active-state contingent on user input.
@@ -40,8 +48,31 @@ public class AddProjectPanelScript : MonoBehaviour
             if (okButton.IsActive())
                 okButton.gameObject.SetActive(false);
         }
-	}
 
+        // Fade bg-image's color toward current color choice.
+            // isFadingColor, curProjectColor & prevProjectColor are set within ColorButtonScript's OnClick.
+        if (isFadingColor)
+        {
+            if (colorFadeTimer_cur < colorFadeTimer_max)
+            {
+                // Increment timer.
+                colorFadeTimer_cur += Time.deltaTime;
+                if (colorFadeTimer_cur > colorFadeTimer_max)
+                    colorFadeTimer_cur = colorFadeTimer_max;
+                // Apply change in color.
+                float t = colorFadeTimer_cur / colorFadeTimer_max; // Lerp value between 0.0 & 1.0.
+                colorImage.color = Color.Lerp(prevProjectColor, curProjectColor, t);
+            }
+            else
+            {
+                // Fading between colors has completed.
+                // Reset to default values and disable fading.
+                isFadingColor = false;
+                colorFadeTimer_cur = 0.0f;
+                colorImage.color = curProjectColor;
+            }
+        }
+	}
     void OnEnable()
     {
         // Reset panel to default state.
@@ -55,17 +86,23 @@ public class AddProjectPanelScript : MonoBehaviour
         okButton.gameObject.SetActive(false);
     }
 
-    // The following (2) methods are not used. See ColorButtonScript which bypasses these methods.
-    public Color GetPanelColor()
+    // Public interface methods.
+    public Color GetCurrentColorChoice()
     {
-        Image img = GetComponent<Image>();
-        return img.color;
+        return curProjectColor;
     }
-    public void SetPanelColor(Color _col)
+    public void SetCurrentColorChoice(Color _col)
     {
-        // Get Image-component within panel.
-        Image img = GetComponent<Image>();
-        // Apply new color to Image-component, updating the panel's background color.
-        img.color = _col;
+        // Do nothing if user has selected current color again.
+        if (_col == colorImage.color)
+            return;
+        // Activate color fading.
+        isFadingColor = true;
+        // Store previous color used for fading to new color.
+        prevProjectColor = colorImage.color;
+        // Store new current color.
+        curProjectColor = _col;
     }
+
+    // Private interface methods.
 }
