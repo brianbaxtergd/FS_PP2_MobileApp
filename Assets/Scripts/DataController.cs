@@ -7,6 +7,8 @@ public class DataController : MonoBehaviour
 {
     // Add New Project Panel Components.
     public InputField mProjectNameInputField;
+    public InputField mTaskNameInputField;
+
     public GameObject addProjectPanel;
 
     // Other components.
@@ -31,11 +33,15 @@ public class DataController : MonoBehaviour
     // Creates project from panel component data.
     public void AddProject()
     {
-        System.Random rng = new System.Random();
         Project p = new Project(mProjectNameInputField.textComponent.text, addProjectPanel.GetComponent<Image>().color);
         mProjectList.Add(p);
         // Update projects graph.
         projectsGraphScript.UpdateGraph();
+    }
+    public void AddTask()
+    {
+        Task t = new Task(mTaskNameInputField.textComponent.text, 0);
+        ((Project)mProjectList[mCurrentProjectIndex]).AddTask(mTaskNameInputField.textComponent.text, 0);
     }
 
     // Property to get/set current project index.

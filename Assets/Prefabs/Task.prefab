@@ -16,11 +16,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 224000013065329222}
-  - 222: {fileID: 222000011318169028}
-  - 114: {fileID: 114000011553905094}
+  - component: {fileID: 224000013065329222}
+  - component: {fileID: 222000011318169028}
+  - component: {fileID: 114000011553905094}
   m_Layer: 5
   m_Name: text_taskName
   m_TagString: Untagged
@@ -33,9 +33,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 224000011358166750}
+  - component: {fileID: 224000011358166750}
+  - component: {fileID: 114527947137331976}
   m_Layer: 5
   m_Name: Task
   m_TagString: Untagged
@@ -48,11 +49,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 224000011720666064}
-  - 222: {fileID: 222000012628946072}
-  - 114: {fileID: 114000013683493838}
+  - component: {fileID: 224000011720666064}
+  - component: {fileID: 222000012628946072}
+  - component: {fileID: 114000013683493838}
   m_Layer: 5
   m_Name: panel_task
   m_TagString: Untagged
@@ -65,12 +66,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 224000012351355020}
-  - 222: {fileID: 222000013847940624}
-  - 114: {fileID: 114000014286935426}
-  - 114: {fileID: 114000010463553622}
+  - component: {fileID: 224000012351355020}
+  - component: {fileID: 222000013847940624}
+  - component: {fileID: 114000014286935426}
+  - component: {fileID: 114000010463553622}
   m_Layer: 5
   m_Name: button_archiveTask
   m_TagString: Untagged
@@ -206,6 +207,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114527947137331976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012732413732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2274f00cfc5d874bb5368d0731577b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222000011318169028
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -233,11 +245,11 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000011720666064}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -252,12 +264,12 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.05, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000013065329222}
   - {fileID: 224000012351355020}
   m_Father: {fileID: 224000011358166750}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 400}
@@ -272,10 +284,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1111112, y: 20, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000011720666064}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 50, y: 0}
@@ -290,10 +302,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 20, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000011720666064}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 600, y: -500}
