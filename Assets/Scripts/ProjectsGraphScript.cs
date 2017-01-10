@@ -10,7 +10,7 @@ public class ProjectsGraphScript : MonoBehaviour
     public GameObject wedgePrefab;
 
     // Data.
-    ArrayList wedges; // Holds instances of wedgePrefabs.
+    public ArrayList wedges; // Holds instances of wedgePrefabs.
 
 	// Initialize projects graph.
 	void Start ()

@@ -33,7 +33,7 @@ public class DataController : MonoBehaviour
     // Creates project from panel component data.
     public void AddProject()
     {
-        Project p = new Project(mProjectNameInputField.textComponent.text, addProjectPanel.GetComponent<Image>().color);
+        Project p = new Project(mProjectNameInputField.textComponent.text, addProjectPanel.GetComponent<AddProjectPanelScript>().GetCurrentColorChoice());
         mProjectList.Add(p);
         // Update projects graph.
         projectsGraphScript.UpdateGraph();
