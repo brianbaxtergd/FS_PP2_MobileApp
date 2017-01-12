@@ -20,6 +20,8 @@ public class ApplicationStateMachineScript : MonoBehaviour
     public Text toolBarTitleText;
     public GameObject applicationController;
     public GameObject panelSettings;
+    public GameObject projectGraphs;
+    private ProjectsGraphScript projectsGraphScript;
 
     // User settings.
     bool timerAudio = true;
@@ -30,6 +32,7 @@ public class ApplicationStateMachineScript : MonoBehaviour
     {
         state = appStates.home;
         toolBarTitleText.text = "Home";
+        projectsGraphScript = projectGraphs.GetComponent<ProjectsGraphScript>();
     }
     void Update()
     {
@@ -67,6 +70,8 @@ public class ApplicationStateMachineScript : MonoBehaviour
                 case appStates.home:
                     panelHome.SetActive(true);
                     toolBarTitleText.text = "Home";
+                    // Force graph to re-draw, including any changes made to projects/tasks.
+                    projectsGraphScript.UpdateGraph();
                     break;
                 case appStates.project:
                     panelProject.SetActive(true);

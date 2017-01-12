@@ -15,14 +15,14 @@ public class Project
         mName = "Default Project";
         Color mColor = Color.yellow;
         // Adds a blank task to every new project.
-        mTaskList.Add(new Task());
+        //mTaskList.Add(new Task());
     }
     public Project(string _name, Color _color)
     {
         mName = _name;
         mColor = _color;
         // Adds a blank task to every new project.
-        mTaskList.Add(new Task());
+        //mTaskList.Add(new Task());
     }
     // Tasklist interface.
     public string Name
