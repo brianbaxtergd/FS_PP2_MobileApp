@@ -19,4 +19,8 @@ public class TaskController : MonoBehaviour {
     {
         textName.text = name;
     }
+    public void Activate (bool active)
+    {
+        enabled = active;
+    }
 }

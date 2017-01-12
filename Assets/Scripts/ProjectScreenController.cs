@@ -18,7 +18,7 @@ public class ProjectScreenController : MonoBehaviour{
     void Start () {
         dc = ac.GetComponent<DataController>();
         project = (Project)dc.mProjectList[dc.CurrentProjectIndex];
-        tasksArr = tasks.GetComponents<TaskController>();
+        tasksArr = tasks.GetComponentsInChildren<TaskController>();
         //scrollPosition = 1;
         Draw();
     }
@@ -38,8 +38,9 @@ public class ProjectScreenController : MonoBehaviour{
         int modifier = (int)(scrollBar.value * scrollSize);
         for (int i = 0; i < tasksArr.Length; i++)
         {
-            if (project.GetActiveTask(i + modifier) == null)
-                tasksArr[i].enabled = false;
+            tasksArr[i].gameObject.SetActive(true);
+            if (project.GetActiveTask(i + modifier).GetName() == "EmptyTask")
+                tasksArr[i].gameObject.SetActive(false);
             else
                 tasksArr[i].SetName(project.GetActiveTask(i + modifier).GetName());
         }

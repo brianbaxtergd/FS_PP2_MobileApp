@@ -34,6 +34,10 @@ public class Task /*: ScriptableObject*/
     {
         return taskName;
     }
+    public int GetPriority()
+    {
+        return (int)priority;
+    }
     // Unity methods.
     void Start ()
     {
