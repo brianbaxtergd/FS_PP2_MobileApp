@@ -8,15 +8,9 @@ public class ProjectScreenController : MonoBehaviour{
     public GameObject ac;
     DataController dc;
     Project project;
-    public GameObject task1;
-    public GameObject task2;
-    public GameObject task3;
-    public GameObject task4;
-    public GameObject task5;
-    public GameObject task6;
-    public GameObject task7;
-    public GameObject task8;
-    public GameObject task9;
+    public GameObject tasks;
+    public TaskController[] tasksArr;
+    public Scrollbar scrollBar;
     int taskCount;
     float scrollSize;
     //int scrollPosition;
@@ -24,6 +18,7 @@ public class ProjectScreenController : MonoBehaviour{
     void Start () {
         dc = ac.GetComponent<DataController>();
         project = (Project)dc.mProjectList[dc.CurrentProjectIndex];
+        tasksArr = tasks.GetComponents<TaskController>();
         //scrollPosition = 1;
         Draw();
     }
@@ -32,16 +27,21 @@ public class ProjectScreenController : MonoBehaviour{
 
     void Update () {
         project = (Project)dc.mProjectList[dc.CurrentProjectIndex];
+        Draw();
     }
     void Draw () {
         taskCount = project.GetActiveTaskCount();
-        scrollSize = taskCount / 11;
-        //int multiplier = 0;
-        
-        for (int i = 0; i < taskCount; i++)
+        scrollSize = (taskCount) / 9;
+        if (taskCount % 9 > 0)
+            scrollSize++;
+        scrollBar.size = 1 / scrollSize; 
+        int modifier = (int)(scrollBar.value * scrollSize);
+        for (int i = 0; i < tasksArr.Length; i++)
         {
-
-
+            if (project.GetActiveTask(i + modifier) == null)
+                tasksArr[i].enabled = false;
+            else
+                tasksArr[i].SetName(project.GetActiveTask(i + modifier).GetName());
         }
     }
 }

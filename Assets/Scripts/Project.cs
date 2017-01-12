@@ -36,6 +36,12 @@ public class Project
             mName = value;
         }
     }
+    public Task GetActiveTask(int index)
+    {
+        if (index < mTaskList.Count)
+            return (Task)mTaskList[index];
+        return new Task("EmptyTask", -1);
+    }
     public int GetActiveTaskCount()
     {
         return mTaskList.Count;
