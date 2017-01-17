@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class TaskController : MonoBehaviour {
-    Text textName;
+    public Text textName;
     Button buttonCheck;
 	// Use this for initialization
 	void Start () {
@@ -23,5 +23,9 @@ public class TaskController : MonoBehaviour {
     public void Activate (bool active)
     {
         enabled = active;
+    }
+    public void CheckButton()
+    {
+
     }
 }
