@@ -17,7 +17,8 @@ public class TaskController : MonoBehaviour {
 	}
     public void SetName (string name)
     {
-        textName.text = name;
+        if (textName != null) // Null-check resolves a warning/error Unity has been throwing. BB
+            textName.text = name;
     }
     public void Activate (bool active)
     {
