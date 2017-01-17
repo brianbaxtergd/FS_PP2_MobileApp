@@ -16,6 +16,7 @@ public class ProjectScreenController : MonoBehaviour{
         dc = ac.GetComponent<DataController>();
         project = (Project)dc.mProjectList[dc.CurrentProjectIndex];
         //scrollPosition = 1;
+        Draw();
     }
 
     // Update is called once per frame
