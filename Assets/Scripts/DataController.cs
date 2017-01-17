@@ -40,7 +40,7 @@ public class DataController : MonoBehaviour
     }
     public void AddTask()
     {
-        Task t = new Task(mTaskNameInputField.textComponent.text, 0);
+        //Task t = new Task(mTaskNameInputField.textComponent.text, 0);
         ((Project)mProjectList[mCurrentProjectIndex]).AddTask(mTaskNameInputField.textComponent.text, 0);
     }
     // Property to get/set current project index.
