@@ -6,8 +6,8 @@ public class Project
     // Data.
     string mName;
     Color mColor;
-    ArrayList mTaskList = new ArrayList();
-    ArrayList mArchivedTaskList = new ArrayList();
+    public ArrayList mTaskList = new ArrayList();
+    public ArrayList mArchivedTaskList = new ArrayList();
 
     // Constructors.
     public Project()
