@@ -79,16 +79,15 @@ public class ProjectsGraphScript : MonoBehaviour
     {
         DataController dc = applicationController.GetComponent<DataController>();
         Project p = dc.mProjectList[_index] as Project;
+
         int projectTaskCount = p.GetTotalTaskCount();
-        //int totalTaskCount = dc.GetTotalTaskCountInAllProjects();
-        //float a = (float)projectTaskCount / (float)totalTaskCount;
-        //return a;
-        int totalTaskCount;
-        if (dc.GetTotalTaskCountInAllProjects() != 0)
-        {
-            totalTaskCount = 1;
-        }
-        totalTaskCount = dc.GetTotalTaskCountInAllProjects();
+        if (projectTaskCount <= 0)
+            projectTaskCount = 1;
+
+        int totalTaskCount = dc.GetTotalTaskCountInAllProjects();
+        if (totalTaskCount <= 0)
+            totalTaskCount = dc.mProjectList.Count; // If all projects have zero total tasks, assume (1) task per project to help with sizing.
+
         float a = (float)projectTaskCount / (float)totalTaskCount;
         return a;
     }
@@ -98,7 +97,10 @@ public class ProjectsGraphScript : MonoBehaviour
         DataController dc = applicationController.GetComponent<DataController>();
         Project p = dc.mProjectList[_index] as Project;
         int completedTaskCount = p.GetArchivedTaskCount();
-        float r = 1.0f - ((float)completedTaskCount / (float)p.GetTotalTaskCount());
+        int totalTaskCount = p.GetTotalTaskCount();
+        if (totalTaskCount <= 0)
+            totalTaskCount = 1;
+        float r = 1.0f - ((float)completedTaskCount / (float)totalTaskCount);
         return r;
     }
 }

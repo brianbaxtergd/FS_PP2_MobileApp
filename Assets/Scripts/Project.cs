@@ -44,10 +44,10 @@ public class Project
     }
     public int GetActiveTaskCount()
     {
-        if (mTaskList.Count > 0)
+        //if (mTaskList.Count > 0)
             return mTaskList.Count;
-        else
-            return 1;
+        //else
+        //    return 1;
     }
     public int GetArchivedTaskCount()
     {
@@ -55,10 +55,10 @@ public class Project
     }
     public int GetTotalTaskCount()
     {
-        if (mTaskList.Count + mArchivedTaskList.Count > 0)
+        //if (mTaskList.Count + mArchivedTaskList.Count > 0)
             return mTaskList.Count + mArchivedTaskList.Count;
-        else
-            return 1;
+        //else
+        //    return 1;
     }
     public Color GetColor()
     {
