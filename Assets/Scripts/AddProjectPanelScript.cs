@@ -82,6 +82,8 @@ public class AddProjectPanelScript : MonoBehaviour
         // Clear the project name input field text.
         nameInputField.Select();
         nameInputField.text = "";
+        // Clear text from all colored buttons.
+        ColoredButtons_ClearText();
         // Disable the OK button.
         okButton.gameObject.SetActive(false);
     }
@@ -102,6 +104,15 @@ public class AddProjectPanelScript : MonoBehaviour
         prevProjectColor = colorImage.color;
         // Store new current color.
         curProjectColor = _col;
+    }
+    public void ColoredButtons_ClearText()
+    {
+        Text[] buttonTexts = GetComponentsInChildren<Text>();
+        foreach (Text item in buttonTexts)
+        {
+            if (item.text == "+")
+                item.text = "";
+        }
     }
 
     // Private interface methods.
