@@ -84,7 +84,7 @@ public class ProjectsGraphScript : MonoBehaviour
         if (projectTaskCount <= 0)
             projectTaskCount = 1;
 
-        int totalTaskCount = dc.GetTotalTaskCountInAllProjects();
+        int totalTaskCount = dc.Wedge_GetTotalTaskCountInAllProjects();
         if (totalTaskCount <= 0)
             totalTaskCount = dc.mProjectList.Count; // If all projects have zero total tasks, assume (1) task per project to help with sizing.
 

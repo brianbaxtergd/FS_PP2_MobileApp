@@ -39,7 +39,7 @@ public class ProjectScreenController : MonoBehaviour{
             {
                 GameObject go = Instantiate(taskPrefab) as GameObject;
                 go.GetComponent<TaskController>().SetName(project.GetActiveTask(i).GetName());
-                go.transform.parent = tasksParent.transform;
+                go.transform.SetParent(tasksParent.transform);
             }
         }
     }

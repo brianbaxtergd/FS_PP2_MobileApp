@@ -23,11 +23,12 @@ public class DataController : MonoBehaviour
     void Start()
     {
         projectsGraphScript = projectsGraph.GetComponent<ProjectsGraphScript>();
+        LoadData();
     }
     void OnApplicationQuit()
     {
         // Save user-data.
-        //SaveData();
+        SaveData();
     }
 
     public int GetProjectCount()
@@ -127,6 +128,8 @@ public class DataController : MonoBehaviour
             }
             mProjectList.Add(p);
         }
+        // Force projects graph to update.
+        projectsGraphScript.UpdateGraph();
     }
 
     public void SaveData()
@@ -204,6 +207,19 @@ public class DataController : MonoBehaviour
         {
             Project p = mProjectList[i] as Project;
             totalTaskCount += p.GetTotalTaskCount();
+        }
+        return totalTaskCount;
+    }
+    public int Wedge_GetTotalTaskCountInAllProjects()
+    {
+        int totalTaskCount = 0;
+        for (int i = 0; i < mProjectList.Count; i++)
+        {
+            Project p = mProjectList[i] as Project;
+            int taskCount = p.GetTotalTaskCount();
+            if (taskCount <= 0)
+                taskCount = 1;
+            totalTaskCount += taskCount;
         }
         return totalTaskCount;
     }
