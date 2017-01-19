@@ -75,7 +75,6 @@ public class DataController : MonoBehaviour
             //SceneManager.LoadScene("ProjectTasks");
         }
     }
-
     // Save/Load data from local device.
     public void LoadData()
     {
@@ -131,7 +130,6 @@ public class DataController : MonoBehaviour
         // Force projects graph to update.
         projectsGraphScript.UpdateGraph();
     }
-
     public void SaveData()
     {
         // Info.
@@ -199,7 +197,6 @@ public class DataController : MonoBehaviour
         // Write data to disk/device.
         PlayerPrefs.Save();
     }
-
     public int GetTotalTaskCountInAllProjects()
     {
         int totalTaskCount = 0;
