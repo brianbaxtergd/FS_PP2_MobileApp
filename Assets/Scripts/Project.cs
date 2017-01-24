@@ -36,12 +36,33 @@ public class Project
             mName = value;
         }
     }
+	public void ArchiveTask (int index) {
+		mArchivedTaskList.Add(mTaskList[index]);
+		mTaskList.RemoveAt(index);	
+	}
+	public void UnarchiveTask (int index) { 
+		mTaskList.Add (mArchivedTaskList[index]);
+		mArchivedTaskList.RemoveAt (index);	
+	}
+
+	public void RemoveFromActive (int index) {
+		mTaskList.RemoveAt (index);
+	}
+	public void RemoveFromArchive (int index) {
+		mArchivedTaskList.RemoveAt (index);
+	}
     public Task GetActiveTask(int index)
     {
         if (index < mTaskList.Count)
             return (Task)mTaskList[index];
         return new Task("EmptyTask", -1);
     }
+	public Task GetArchivedTask(int index)
+	{
+		if (index < mArchivedTaskList.Count)
+			return (Task)mArchivedTaskList[index];
+		return new Task("EmptyTask", -1);
+	}
     public int GetActiveTaskCount()
     {
         //if (mTaskList.Count > 0)

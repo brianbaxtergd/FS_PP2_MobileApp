@@ -21,6 +21,7 @@ public class ApplicationStateMachineScript : MonoBehaviour
     public GameObject applicationController;
     public GameObject panelSettings;
     public GameObject projectGraphs;
+    public GameObject projectView;
     private ProjectsGraphScript projectsGraphScript;
 
     // User settings.
@@ -81,6 +82,8 @@ public class ApplicationStateMachineScript : MonoBehaviour
                     toolBarTitleText.text = p.Name;
                     // Update canvas bg color.
                     panelProject.GetComponent<Image>().color = p.GetColor();
+                    projectView.GetComponent<ProjectScreenController>().Init();
+                    projectView.GetComponent<ProjectScreenController>().Draw();
                     break;
                 case appStates.quickTimer:
                     panelQuickTimer.SetActive(true);

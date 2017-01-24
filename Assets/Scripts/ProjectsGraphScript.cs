@@ -56,8 +56,8 @@ public class ProjectsGraphScript : MonoBehaviour
             zRot += item.GetComponent<Image>().fillAmount * 360;
             // Update image radius.
             float scale = ws.radius; //(ws.radius / 2.0f) + 0.5f;
-            if (scale < 0.1)
-                scale = 0.1f;
+            if (scale < 0.25)
+                scale = 0.25f;
             else if (scale > 0.9)
                 scale = 0.9f;
             item.transform.localScale = new Vector3(scale, scale, scale);

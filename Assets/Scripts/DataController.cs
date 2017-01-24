@@ -10,6 +10,9 @@ public class DataController : MonoBehaviour
     public InputField mTaskNameInputField;
 
     public GameObject addProjectPanel;
+	public Button taskViewButton;
+	public GameObject tasksParent;
+    public GameObject projectView;
 
     // Other components.
     public GameObject projectsGraph;
@@ -48,6 +51,40 @@ public class DataController : MonoBehaviour
     {
         //Task t = new Task(mTaskNameInputField.textComponent.text, 0);
         ((Project)mProjectList[mCurrentProjectIndex]).AddTask(mTaskNameInputField.textComponent.text, 0);
+    }
+	public void ToggleTaskState()
+	{
+        //if (!projectView.GetComponent<ProjectScreenController>().isUpdating())
+        //{
+            if (taskViewButton.GetComponentInChildren<Text>().text == "VIEW ARCHIVE") {
+                for (int i = 0; i < tasksParent.transform.childCount; i++)
+                {
+                    Toggle t = tasksParent.transform.GetChild(i).gameObject.GetComponentInChildren<Toggle>();
+                    if (t.isOn)
+                    {
+                        ((Project)mProjectList [mCurrentProjectIndex]).CompleteTask(i);
+                        Destroy(tasksParent.transform.GetChild(i).gameObject);
+                        break;
+                    }
+                }
+		    }
+		    else if (taskViewButton.GetComponentInChildren<Text>().text == "VIEW ACTIVE") {
+                for (int i = 0; i < tasksParent.transform.childCount; i++)
+                {
+                    Toggle t = tasksParent.transform.GetChild(i).gameObject.GetComponentInChildren<Toggle>();
+                    if (t.isOn)
+                    {
+                        ((Project)mProjectList[mCurrentProjectIndex]).UnarchiveTask(i);
+                        Destroy(tasksParent.transform.GetChild(i).gameObject);
+
+                        break;
+
+                    }
+                }
+            }
+        //}
+        //else
+        //    return;
     }
     // Property to get/set current project index.
     public int CurrentProjectIndex
