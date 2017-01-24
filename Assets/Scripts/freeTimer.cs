@@ -26,6 +26,9 @@ public class freeTimer : MonoBehaviour
     // Resources.
     public AudioClip sndTimerWarning;
     public AudioClip sndTimerEnd;
+    //GameOBject To Play sound on Click.
+    public AudioSource OkSound;
+    public AudioSource BackSound;
     // Messages.
     string[] breakMessages;
     string[] workMessages;
@@ -185,12 +188,16 @@ public class freeTimer : MonoBehaviour
         mPaused = !mPaused;
         // Update button text.
         if (mPaused)
+        {
             mTimerButtonText.text = "START";
+            BackSound.Play();
+        }
         else
         {
             mTimerButtonText.text = "PAUSE";
             if (showMessage)
                 showMessage = false;
+            OkSound.Play();
         }
     }
 }

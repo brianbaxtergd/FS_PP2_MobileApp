@@ -22,7 +22,9 @@ public class ApplicationStateMachineScript : MonoBehaviour
     public GameObject panelSettings;
     public GameObject projectGraphs;
     private ProjectsGraphScript projectsGraphScript;
-
+    //Play Sounds
+    public AudioSource OkSound;
+    public AudioSource BackSound;
     // User settings.
     bool timerAudio = true;
     bool timerMessages = true;
@@ -136,6 +138,8 @@ public class ApplicationStateMachineScript : MonoBehaviour
             toolBarTitleText.text = "Settings";
             // Open settings.
             panelSettings.SetActive(true);
+            //Play Ok Sound.
+            OkSound.Play();
         }
         else
         {
@@ -144,6 +148,8 @@ public class ApplicationStateMachineScript : MonoBehaviour
             timerMessages = panelSettings.transform.FindChild("TimerMessagesToggle").GetComponent<Toggle>().isOn;
             // Close settings.
             panelSettings.SetActive(false);
+            //Play Back Sound.
+            BackSound.Play();
             // Revert toolbar title text.
             switch(state)
             {

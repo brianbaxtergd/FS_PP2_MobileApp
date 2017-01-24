@@ -27,6 +27,9 @@ public class WedgeScript : MonoBehaviour
     private GameObject applicationController;
     private GameObject canvas;
 
+    //Play Ok Sound.
+    private GameObject OkSound;
+
     // Wedge prefab initializer.
     public void InitWedgePrefab(int _index, float _angle, float _radius, Color _color)
     {
@@ -41,6 +44,7 @@ public class WedgeScript : MonoBehaviour
     {
         applicationController = GameObject.Find("ApplicationController"); // Must find specific instance of prefab by name, or else project data is not accessible.
         canvas = GameObject.Find("MainCanvas");
+        OkSound = GameObject.Find("OkSound");
 	}
 	
 	// Update is called once per frame
@@ -87,5 +91,9 @@ public class WedgeScript : MonoBehaviour
         //Canvas c = FindObjectOfType<Canvas>();
         ApplicationStateMachineScript appScript = canvas.GetComponent<ApplicationStateMachineScript>();
         appScript.OnClick_ProjectButton();
+
+        //Play Ok Sound.
+        OkSound.GetComponent<AudioSource>().Play();
+
     }
 }

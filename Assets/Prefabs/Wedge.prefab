@@ -16,13 +16,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 224000011569867656}
-  - 222: {fileID: 222000010374923384}
-  - 114: {fileID: 114000013161140184}
-  - 114: {fileID: 114000010641410236}
-  - 114: {fileID: 114000013771636648}
+  - component: {fileID: 224000011569867656}
+  - component: {fileID: 222000010374923384}
+  - component: {fileID: 114000013161140184}
+  - component: {fileID: 114000010641410236}
+  - component: {fileID: 114000013771636648}
   m_Layer: 5
   m_Name: Wedge
   m_TagString: Wedge
@@ -139,10 +139,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
