@@ -26,6 +26,9 @@ public class freeTimer : MonoBehaviour
     // Resources.
     public AudioClip sndTimerWarning;
     public AudioClip sndTimerEnd;
+    //GameOBject To Play sound on Click.
+    public AudioSource OkSound;
+    public AudioSource BackSound;
     // Messages.
     string[] breakMessages;
     string[] workMessages;
@@ -34,8 +37,8 @@ public class freeTimer : MonoBehaviour
     float messageFadeTimer_max = 1.5f;
     // Timer data.
     private float mCurrentTime;
-    private float mStartTime_work = 10; // 25 * 60;
-    private float mStartTime_break = 10; // 5 * 60;
+    private float mStartTime_work = 25 * 60; // 25 * 60;
+    private float mStartTime_break = 5 * 60; // 5 * 60;
     public float mWarningTime;
     private string[] mTimerStates;
 
@@ -113,7 +116,7 @@ public class freeTimer : MonoBehaviour
     {
         string m, s, t;
         m = ((int)(mCurrentTime / 60)).ToString();
-        int fs = (int)Math.Ceiling(mCurrentTime) % 60;
+        int fs = (int)Math.Floor(mCurrentTime) % 60; // ceiling
         s = fs.ToString();
         t = m + ":";
         if (fs < 10)
@@ -185,12 +188,16 @@ public class freeTimer : MonoBehaviour
         mPaused = !mPaused;
         // Update button text.
         if (mPaused)
+        {
             mTimerButtonText.text = "START";
+            BackSound.Play();
+        }
         else
         {
             mTimerButtonText.text = "PAUSE";
             if (showMessage)
                 showMessage = false;
+            OkSound.Play();
         }
     }
 }

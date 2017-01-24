@@ -26,7 +26,8 @@ public class DataController : MonoBehaviour
     void Start()
     {
         projectsGraphScript = projectsGraph.GetComponent<ProjectsGraphScript>();
-        LoadData();
+        //LoadData();
+        PlayerPrefs.DeleteAll();
     }
     void OnApplicationQuit()
     {
