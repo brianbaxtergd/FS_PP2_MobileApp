@@ -720,7 +720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -346}
+  m_AnchoredPosition: {x: 0, y: -303}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &189120489
@@ -4378,7 +4378,7 @@ MonoBehaviour:
   audioSource: {fileID: 948033679}
   sndTimerWarning: {fileID: 8300000, guid: c6f813338d5225d4c9d390505d2fa9de, type: 3}
   sndTimerEnd: {fileID: 8300000, guid: 29af699af727011419958f0bbf7f7acc, type: 3}
-  mWarningTime: 5
+  mWarningTime: 60
 --- !u!1 &1142960417
 GameObject:
   m_ObjectHideFlags: 0
